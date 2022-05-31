@@ -1,0 +1,19 @@
+<div class="action">
+    <ng-template [ngIf]="description">
+        {{description}}
+    </ng-template>
+    <ng-template ngFor let-action [ngForOf]="actions">
+        <ng-template [ngIf]="action.control===ControlType.Button">
+            <app-button [config]="action.config"></app-button>
+        </ng-template>
+
+        <ng-template [ngIf]="action.control===ControlType.Download">
+            <app-download [config]="action.config" [attachments]="attachments">
+            </app-download>
+        </ng-template>
+
+        <ng-template [ngIf]="action.control===ControlType.File">
+            <app-upload [config]="action.config"></app-upload>
+        </ng-template>
+    </ng-template>
+</div>

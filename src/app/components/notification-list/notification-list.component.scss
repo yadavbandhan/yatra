@@ -1,0 +1,16 @@
+.toggle {
+  cursor: pointer;
+}
+
+.notifications {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.notification {
+  border-bottom: 1px solid black;
+}
+
+.notification:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center w-100">
+    <div class="w-25">
+        <div class="d-flex justify-content-center fw-bold">
+            Notifications
+        </div>
+        <div class="notifications mt-3">
+            <ng-template ngFor let-notif [ngForOf]="notifications" let-index="index">
+                <div class="p-2 notification">
+                    <div class="d-flex toggle" (click)="toggleNotif(index)">
+                        <div class="fw-bold">{{notif.from.name}}</div>
+                        <div class="ms-2 flex-fill text-truncate w-75">{{notif.message}}</div>
+                        <div class="ms-2 fw-bold">{{showNotif[index] ? '-' : '+'}}</div>
+                    </div>
+
+                    <!-- actions -->
+                    <ng-template [ngIf]="showNotif[index] && notif.actions.length">
+                        <app-actions [actions]="notif.actions" [description]="notif.description"
+                            [attachments]="notif.attachments"></app-actions>
+                    </ng-template>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
